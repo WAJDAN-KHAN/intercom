@@ -1793,8 +1793,8 @@
 }
 
 .right_island__cqoMO {
-    /* display: flex; */
-    display: none !important;
+    display: flex;
+    /* display: none !important; */
     gap: var(--spacing-0-75);
     background: var(--color-white);
     color: var(--color-black);

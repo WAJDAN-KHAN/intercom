@@ -133,7 +133,7 @@ button {
     background-color: var(--color-black);
     color: var(--color-white);
     padding: var(--spacing-1-25) 0 var(--spacing-1-5) 0;
-    display: none !important;
+    /* display: none !important; */
 }
 
 @media (min-width:760px) {
