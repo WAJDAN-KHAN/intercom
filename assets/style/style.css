@@ -227,15 +227,15 @@ html {
     border-radius: 6px;
 }
 
-/* .hero-section {
-    background-image: url('../images/hero-bg.webp');
+.hero-section {
+    background-image: url('../images/hero-bg/hero-bg.webp');
     background-position: center;
     background-size: cover;
     min-height: 1728px;
-} */
+}
 
-.hero-bg{
-    aspect-ratio: 2560 / 5219;
+/* .hero-bg{
+    
     width: 100%;
     height: 100%;
 }
@@ -243,7 +243,11 @@ html {
 .hero-bg img{
     width: 100%;
     height: 100%;
-}
+    position: absolute;
+    z-index: -1;
+    object-fit: cover;
+    object-position: center;
+} */
 .text-section {
     padding-left: 20px;
     padding-right: 20px;
