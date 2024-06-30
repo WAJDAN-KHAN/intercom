@@ -488,12 +488,11 @@
                             </div>
                         </div>
                         <div class="col-md-6 col-12">
-                            <form class="contact100-form validate-form">
-                                <span class="contact100-form-title">
-                                    Get in touch
-                                </span>
+                            <form class="contact100-form validate-form" id="contactForm">
+                                <span class="contact100-form-title">Get in touch</span>
                                 <div class="wrap-input100 validate-input" data-validate="Name is required">
-                                    <input class="input100" type="text" name="name" placeholder="Name">
+                                    <input class="input100" type="text" name="name" id="name" placeholder="Name"
+                                        required>
                                     <span class="focus-input100"></span>
                                     <span class="symbol-input100">
                                         <i class="fa fa-user" aria-hidden="true"></i>
@@ -501,20 +500,20 @@
                                 </div>
                                 <div class="wrap-input100 validate-input"
                                     data-validate="Valid email is required: ex@abc.xyz">
-                                    <input class="input100" type="text" name="email" placeholder="Email">
+                                    <input class="input100" type="email" name="email" id="email" placeholder="Email"
+                                        required>
                                     <span class="focus-input100"></span>
                                     <span class="symbol-input100">
                                         <i class="fa fa-envelope" aria-hidden="true"></i>
                                     </span>
                                 </div>
                                 <div class="wrap-input100 validate-input" data-validate="Message is required">
-                                    <textarea class="input100" name="message" placeholder="Message"></textarea>
+                                    <textarea class="input100" name="message" id="message" placeholder="Message"
+                                        required></textarea>
                                     <span class="focus-input100"></span>
                                 </div>
                                 <div class="container-contact100-form-btn">
-                                    <button class="contact100-form-btn">
-                                        Send
-                                    </button>
+                                    <button class="contact100-form-btn" type="submit">Send</button>
                                 </div>
                             </form>
                         </div>
@@ -678,7 +677,26 @@
             });
         });
     </script>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function (event) {
+            event.preventDefault();
 
+            // Get form data
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var message = document.getElementById('message').value;
+
+            // Construct mailto URL
+            var mailtoLink = 'mailto:tilman@dietrich.ai' +
+                '?subject=' + encodeURIComponent('Contact Form Submission') +
+                '&body=' + encodeURIComponent('Name: ' + name + '\n' +
+                    'Email: ' + email + '\n' +
+                    'Message: ' + message);
+
+            // Open the default mail client with the mailto URL
+            window.location.href = mailtoLink;
+        });
+    </script>
 </body>
 
 </html>
