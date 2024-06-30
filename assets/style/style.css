@@ -845,6 +845,75 @@ color: white;
 }
 
 
+
+.hamburger_menu__condensed_tray__WkOFs.open__rhAW3 {
+    visibility: visible;
+    z-index: 9999;
+}
+.hamburger_menu__condensed_tray__WkOFs {
+    background-color: #fff;
+    padding-top: 48px;
+    max-height: 100dvh;
+    overflow-y: scroll;
+    z-index: -1;
+    border-radius: 8px;
+    position: fixed;
+    top: 0.5rem;
+    left: 0.5rem;
+    right: 0.5rem;
+    visibility: hidden;
+    
+}
+.hamburger_menu__condensed_tray__logo__aN0J5 {
+    height: 50px;
+    position: fixed;
+    background-color: white;
+    z-index: 1;
+    top: .5rem;
+    left: .5rem;
+    right: .5rem;
+    border-radius: 8px 8px 0 0;
+    border-bottom: 1px solid rgba(23,16,14,.2);
+}
+.hamburger_menu__condensed_tray__contents__X28k_ {
+    border-top: 1px solid rgba(23,16,14,.2);
+    padding: 1rem 1.5rem 1.5rem 1.5rem;
+}
+
+.mobile-items ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+     
+}
+.mobile-items ul li a{
+    display: inline-block;
+    position: relative;
+    padding: 9px 0.5rem;
+    font-size: 20px;
+    color: #17100e;
+    text-decoration: none;
+    background-color: white;
+    font-weight: 700;
+    line-height: 1;
+    transition: .3s;
+    border-radius: 6px;
+}
+
+.hamburger_menu__ctas__rff6_ {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border-top: 1px solid rgba(23,16,14,.2);
+    padding: 1.5rem;
+}
+
+.btn__OJSKZ.primary__tAcqa .foreground__FzNcQ {
+    background:#17100e;
+    color: white;
+}
+ 
 /* media query  */
 
 
@@ -1023,6 +1092,7 @@ color: white;
         background-color: transparent;
     }
 
+
     .contact100-pic {
         width: 100%;
         padding-top: 55px;
@@ -1072,5 +1142,8 @@ color: white;
     .hero-section{
      background-image: url('../images/home_hero_mob.webp');   
      min-height: 1341px;
+    }
+    .contact-form{
+        padding: 20px;
     }
 }
