@@ -661,6 +661,7 @@
             const hamburger = document.querySelector('.hamburger');
             const menu = document.querySelector('.hamburger_menu__condensed_tray__WkOFs');
             const closeMenu = document.querySelector('.close-menu');
+            const menuItems = document.querySelectorAll('.mobile-items ul li a');
 
             hamburger.addEventListener('click', function () {
                 menu.classList.toggle('open__rhAW3');
@@ -668,6 +669,12 @@
 
             closeMenu.addEventListener('click', function () {
                 menu.classList.remove('open__rhAW3');
+            });
+
+            menuItems.forEach(item => {
+                item.addEventListener('click', function () {
+                    menu.classList.remove('open__rhAW3');
+                });
             });
         });
     </script>
