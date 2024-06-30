@@ -744,10 +744,11 @@ button {
     z-index: 10;
     overflow: visible;
     display: flex;
+    justify-content: space-between;
 }
 
 .hero_carousel_buttons__NICga>.carousel_buttons_inner__EOV8g {
-    width: 50%;
+    width: 30%;
     height: 100%;
     position: relative;
     padding: 0 1rem;
