@@ -6,10 +6,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Intercom</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./assets/style/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
+    <header class="app-header">
+        <div class=" desk">
+            <div class="d-flex gap-3  align-items-center">
+                <div class="menu-items">
+                    <ul>
+                        <li>
+                            <a href="index.html">
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Services
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Diogenes
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div><a class="btn__OJSKZ primary__tAcqa size_base__FqE55" href="#services"><span
+                            class="foreground__FzNcQ">Contact</span>
+                        <div class="background_wrapper__DaV4c"><span class="background__Tz1lV"></span></div>
+                    </a></div>
+            </div>
+        </div>
+        <button class="hamburger">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none">
+                <path fill="currentColor"
+                    d="M5 9a1 1 0 0 1 1-1h20a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1ZM5 16a1 1 0 0 1 1-1h20a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1ZM5 23a1 1 0 0 1 1-1h20a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1Z">
+                </path>
+            </svg>
+        </button>
+    </header>
+    <div class="hamburger_menu__condensed_tray__WkOFs">
+        <div class="hamburger_menu__condensed_tray__contents__X28k_">
+            <div class="d-flex justify-content-end hamburger_menu__condensed_tray__logo__aN0J5">
+                <button aria-label="Close menu" class="close-menu"><svg xmlns="http://www.w3.org/2000/svg" width="32"
+                        height="32" fill="none">
+                        <path fill="currentColor"
+                            d="M8.222 23.778a1 1 0 0 1 0-1.414L22.364 8.222a1 1 0 1 1 1.414 1.414L9.636 23.778a1 1 0 0 1-1.414 0Z">
+                        </path>
+                        <path fill="currentColor"
+                            d="M23.778 23.778a1 1 0 0 1-1.414 0L8.222 9.636a1 1 0 1 1 1.414-1.414l14.142 14.142a1 1 0 0 1 0 1.414Z">
+                        </path>
+                    </svg></button>
+            </div>
+            <div class="mobile-items">
+                <ul>
+                    <li>
+                        <a href="index.html">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Services
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Diogenes
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="hamburger_menu__ctas__rff6_">
+            <a data-i2-child="cta-link" class="btn__OJSKZ primary__tAcqa size_base__FqE55" href="#services"><span
+                    class="foreground__FzNcQ">Contact us</span>
+                <div class="background_wrapper__DaV4c"><span class="background__Tz1lV"></span></div>
+            </a>
+        </div>
+    </div>
     <div class="leg roboto">
         <p><strong>Datenschutzerklärung</strong></p>
 
@@ -446,6 +525,65 @@
 
 
     </div>
+    <div class="bottom-footer">
+        <a href="https://www.linkedin.com/in/tilman-dietrich/" target="_blank">
+            <img src="./assets/images/linkedin.png" alt="">
+        </a>
+        <div style="display: flex; gap: 15px;">
+            <a href="legal.html">
+                Legal
+            </a>
+            <a href="privacy.html">
+                Privacy
+            </a>
+        </div>
+
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var scrollTopBtn = document.getElementById('scrollTopBtn');
+
+            // Smooth scroll to top and hide button
+            scrollTopBtn.addEventListener('click', function () {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                scrollTopBtn.classList.add('hidden');
+            });
+
+            // Show/hide button based on scroll position
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 100) {
+                    scrollTopBtn.classList.remove('hidden');
+                } else {
+                    scrollTopBtn.classList.add('hidden');
+                }
+            });
+
+            // Initially hide the button
+            scrollTopBtn.classList.add('hidden');
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const hamburger = document.querySelector('.hamburger');
+            const menu = document.querySelector('.hamburger_menu__condensed_tray__WkOFs');
+            const closeMenu = document.querySelector('.close-menu');
+            const menuItems = document.querySelectorAll('.mobile-items ul li a');
+
+            hamburger.addEventListener('click', function () {
+                menu.classList.toggle('open__rhAW3');
+            });
+
+            closeMenu.addEventListener('click', function () {
+                menu.classList.remove('open__rhAW3');
+            });
+
+            menuItems.forEach(item => {
+                item.addEventListener('click', function () {
+                    menu.classList.remove('open__rhAW3');
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

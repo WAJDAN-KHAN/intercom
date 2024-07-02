@@ -9,6 +9,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
 </head>
 
 <body>
@@ -484,53 +486,44 @@
             </div>
             <div class="my-5">
                 <div class="contact-form">
-                    <div class="row m-0">
-                        <div class="col-md-6 col-12">
-                            <div class="contact100-pic js-tilt" data-tilt=""
-                                style="will-change: transform; transform: perspective(300px) rotateX(0deg) rotateY(0deg);">
-                                <img src="./assets/images/img-01.webp" alt="IMG">
-                            </div>
+                    <form class="contact100-form validate-form" onsubmit="sendMail(event)">
+                        <span class="contact100-form-title">
+                            Send Us A Message
+                        </span>
+                        <div class="wrap-input100 validate-input" data-validate="Please enter your name">
+                            <input class="input100" type="text" id="name" name="name" placeholder="Full Name" required>
+                            <span class="focus-input100"></span>
                         </div>
-                        <div class="col-md-6 col-12">
-                            <form class="contact100-form validate-form" id="contactForm">
-                                <span class="contact100-form-title">Get in touch</span>
-                                <div class="wrap-input100 validate-input" data-validate="Name is required">
-                                    <input class="input100" type="text" name="name" id="name" placeholder="Name"
-                                        required>
-                                    <span class="focus-input100"></span>
-                                    <span class="symbol-input100">
-                                        <i class="fa fa-user" aria-hidden="true"></i>
-                                    </span>
-                                </div>
-                                <div class="wrap-input100 validate-input"
-                                    data-validate="Valid email is required: ex@abc.xyz">
-                                    <input class="input100" type="email" name="email" id="email" placeholder="Email"
-                                        required>
-                                    <span class="focus-input100"></span>
-                                    <span class="symbol-input100">
-                                        <i class="fa fa-envelope" aria-hidden="true"></i>
-                                    </span>
-                                </div>
-                                <div class="wrap-input100 validate-input" data-validate="Message is required">
-                                    <textarea class="input100" name="message" id="message" placeholder="Message"
-                                        required></textarea>
-                                    <span class="focus-input100"></span>
-                                </div>
-                                <div class="container-contact100-form-btn">
-                                    <button class="contact100-form-btn" type="submit">Send</button>
-                                </div>
-                            </form>
+                        <div class="wrap-input100 validate-input" data-validate="Please enter your email: e@a.x">
+                            <input class="input100" type="email" name="email" id="email" placeholder="E-mail" required>
+                            <span class="focus-input100"></span>
                         </div>
-                    </div>
+                        <div class="wrap-input100 validate-input" data-validate="Please enter your message">
+                            <textarea class="input100" name="message" id="message" placeholder="Your Message"
+                                required></textarea>
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="container-contact100-form-btn">
+                            <button class="contact100-form-btn" type="submit">
+                                <span>
+                                    <i class="fa fa-paper-plane-o m-r-6" aria-hidden="true"></i>
+                                    Send
+                                </span>
+                            </button>
+                        </div>
+                        <div id="loading" style="display:none;">Sending...</div>
+                    </form>
                 </div>
             </div>
+
+
         </div>
 
     </section>
 
 
     <div class="bottom-footer">
-        <a href="https://www.linkedin.com/in/tilman-dietrich/">
+        <a href="https://www.linkedin.com/in/tilman-dietrich/" target="_blank">
             <img src="./assets/images/linkedin.png" alt="">
         </a>
         <div style="display: flex; gap: 15px;">
@@ -546,6 +539,62 @@
     <a id="scrollTopBtn" class="scroll-top-arrow hide-in-tablet">
         <img src="./assets/images/top.png" style="width: 16px; height: auto;" alt="">
     </a>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("NCde8m8_OmFB68ZtS");
+        })();
+
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(String(email).toLowerCase());
+        }
+
+        function sendMail(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let message = document.getElementById("message").value;
+            // let toName = "Recipient Name"; 
+
+            if (!name || !email || !message) {
+                alert("All fields are required!");
+                return;
+            }
+
+            if (!validateEmail(email)) {
+                alert("Please enter a valid email address!");
+                return;
+            }
+
+            let params = {
+                name: name,
+                email: email,
+                message: message,
+                // to_name: toName
+            };
+
+            document.getElementById("loading").style.display = "block";
+
+            emailjs.send("service_ocwpxgv", "template_b1dt8zm", params)
+                .then(function (response) {
+                    document.getElementById("loading").style.display = "none";
+                    alert("Email sent successfully!");
+                    console.log('SUCCESS!', response.status, response.text);
+
+                    // Clear the input fields
+                    document.getElementById("name").value = '';
+                    document.getElementById("email").value = '';
+                    document.getElementById("message").value = '';
+                }, function (error) {
+                    document.getElementById("loading").style.display = "none";
+                    alert("Failed to send email. Please try again.");
+                    console.log('FAILED...', error);
+                });
+        }
+    </script>
 
 
 
